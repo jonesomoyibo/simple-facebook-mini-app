@@ -16,6 +16,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
+
+
     <TextView
         android:id="@+id/postview"
         android:layout_width="0dp"
@@ -24,7 +26,6 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="30dp"
         android:background="@drawable/shape"
-        android:editable="false"
         android:hint="What's on Your Mind?"
         android:paddingStart="25dp"
         android:paddingLeft="20dp"
@@ -46,4 +47,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/postview" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

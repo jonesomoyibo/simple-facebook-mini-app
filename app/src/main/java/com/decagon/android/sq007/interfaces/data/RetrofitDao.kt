@@ -1,12 +1,12 @@
-package com.decagon.android.sq007.api
+package com.decagon.android.sq007.interfaces.data
 
 
-import com.decagon.android.sq007.DataModels.Comment
-import com.decagon.android.sq007.DataModels.Post
-import retrofit2.Response
+import com.decagon.android.sq007.Models.Comment
+import com.decagon.android.sq007.Models.Post
 import retrofit2.http.*
 
-interface ApiService {
+
+interface RetrofitDao {
 
     @GET("/posts/{id}/comments")
     suspend fun getComments(@Path("id") id:Int):MutableList<Comment>
@@ -15,21 +15,12 @@ interface ApiService {
     suspend fun getPosts(): MutableList<Post>
 
 
-
-    @POST("posts")
+    @POST("/posts")
     suspend fun createPost(@Body post:Post):Post
 
 
     @POST("/comments")
     suspend fun createComment(@Body comment: Comment): Comment
-
-
-   @DELETE("/posts/{id}")
-   suspend fun deletePost(@Path("id") id:Int):Post
-
-
-    @DELETE("/comments/{id}")
-    suspend fun deleteComment(@Path("id") id:Int):Comment
 
 
     @PUT("/posts/{id}")

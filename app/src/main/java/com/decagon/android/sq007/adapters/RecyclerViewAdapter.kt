@@ -1,18 +1,16 @@
 package com.decagon.android.sq007.adapters
 
 import android.content.Context
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
-import com.decagon.android.sq007.DataModels.Comment
-import com.decagon.android.sq007.DataModels.Post
+import com.decagon.android.sq007.Models.Comment
+import com.decagon.android.sq007.Models.Post
 import com.decagon.android.sq007.R
 import com.decagon.android.sq007.databinding.CommentslayoutBinding
 import com.decagon.android.sq007.databinding.PostlayoutBinding
-import com.decagon.android.sq007.interfaces.OnAdapterItemListener
+import com.decagon.android.sq007.interfaces.ui.OnAdapterItemListener
 
 class RecyclerViewAdapter<T>(private var list:MutableList<T>, private var context: Context, private val adapterItemClickListener: OnAdapterItemListener?): RecyclerView.Adapter<RecyclerViewAdapter<T>.ListViewHolder>(){
 
@@ -22,7 +20,7 @@ class RecyclerViewAdapter<T>(private var list:MutableList<T>, private var contex
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
 
- var listViewHolder : ListViewHolder? =null
+      var listViewHolder : ListViewHolder? =null
         if(list[0] is Post) {
             listViewHolder= ListViewHolder(
                 LayoutInflater.from(context).inflate(R.layout.postlayout, parent, false)
@@ -39,9 +37,7 @@ class RecyclerViewAdapter<T>(private var list:MutableList<T>, private var contex
 
 
 
-    override fun getItemCount(): Int {
-      return list.size
-    }
+    override fun getItemCount(): Int = list.size
 
 
 
@@ -62,12 +58,14 @@ class RecyclerViewAdapter<T>(private var list:MutableList<T>, private var contex
                         )
                     }
                 }
-//                postBinder.Postcontent.apply {
-//
-//                    setBackgroundColor(resources.getColor(R.color.grey,null))
-//                    setOnClickListener{
-//                    adapterItemClickListener?.onItemClick(holder.itemView)
-//                } }
+                postBinder.commmenttextview.setOnClickListener{
+                    lists[holder.adapterPosition]?.id?.let { postId ->
+                        adapterItemClickListener?.onItemClick(
+                            postId
+                        )
+                    }
+                }
+
 
             }
 
@@ -83,9 +81,7 @@ class RecyclerViewAdapter<T>(private var list:MutableList<T>, private var contex
     }
 
 
-     fun setAdapterList(postList:MutableList<T>){
-            list = postList
-     }
+     fun setAdapterList(postList:MutableList<T>): () -> Unit = {list = postList}
 
 
 }

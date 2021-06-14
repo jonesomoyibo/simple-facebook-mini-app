@@ -1,13 +1,10 @@
 package com.decagon.android.sq007.activities
 
 import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.view.View
 import android.widget.Toast
-import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doOnTextChanged
 import com.decagon.android.sq007.R
 import com.decagon.android.sq007.databinding.ActivityCreatePostBinding
@@ -33,6 +30,15 @@ class CreatePostActivity : AppCompatActivity() {
 
 
     private fun setupUI() {
+
+        supportActionBar?.apply{
+            title ="NEW POST"
+            setBackgroundDrawable(
+                ColorDrawable(getResources()
+                    .getColor(R.color.BLUE,null))
+            );
+
+        }
         viewBinder.postbutton.apply {
             isEnabled= false
 

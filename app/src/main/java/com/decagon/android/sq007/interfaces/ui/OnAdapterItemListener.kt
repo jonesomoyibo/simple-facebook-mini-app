@@ -1,4 +1,4 @@
-package com.decagon.android.sq007.interfaces
+package com.decagon.android.sq007.interfaces.ui
 
 import android.view.View
 

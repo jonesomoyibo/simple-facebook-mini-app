@@ -75,43 +75,49 @@
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/commentinputview"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/commentview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/commentsview" />
 
-    <TextView
-        android:id="@+id/commentinputview"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/commenttextviewshape"
-        android:hint="Write a comment..."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
-
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
+        android:layout_width="41dp"
+        android:layout_height="35dp"
         android:layout_marginStart="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/commentinputview"
+        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
         app:srcCompat="@drawable/camera" />
 
     <ImageView
         android:id="@+id/sendbuton"
-        android:layout_width="wrap_content"
+        android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/commentinputview"
-        app:layout_constraintTop_toTopOf="@+id/commentinputview"
+        android:layout_marginEnd="10dp"
+        android:elevation="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/commentview"
+        app:layout_constraintEnd_toEndOf="@+id/commentview"
+        app:layout_constraintTop_toTopOf="@+id/commentview"
         app:srcCompat="@drawable/send" />
+
+    <EditText
+        android:id="@+id/commentview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/commenttextviewshape"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Write a comment..."
+        android:inputType="textMultiLine"
+        android:paddingEnd="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView4" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
